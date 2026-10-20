@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyToken DApp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>MyToken (MTK)</h1>
+    <button id="connect">Kết nối MetaMask</button>
+
+    <section id="info" hidden>
+      <p>Tài khoản: <code id="account"></code></p>
+      <p>Số dư ví: <b id="balance">0</b> MTK</p>
+      <p>Số dư trong Vault: <b id="vaultBalance">0</b> MTK</p>
+    </section>
+
+    <section id="actions" hidden>
+      <h2>Chuyển token</h2>
+      <input id="to" placeholder="Địa chỉ nhận 0x..." />
+      <input id="amount" type="number" min="0" step="any" placeholder="Số lượng" />
+      <button id="send">Chuyển</button>
+
+      <h2>Vault</h2>
+      <input id="vaultAmount" type="number" min="0" step="any" placeholder="Số lượng" />
+      <div class="row">
+        <button id="deposit">Gửi vào Vault</button>
+        <button id="withdraw">Rút khỏi Vault</button>
+      </div>
+    </section>
+
+    <p id="status"></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; }
+main { max-width: 480px; margin: 40px auto; padding: 24px; background: #1e293b; border-radius: 12px; }
+h1, h2 { margin-top: 0; }
+h2 { margin-top: 24px; font-size: 1.1rem; }
+input { width: 100%; box-sizing: border-box; padding: 10px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: inherit; }
+button { padding: 10px 16px; border: 0; border-radius: 6px; background: #6366f1; color: #fff; cursor: pointer; }
+button:hover { background: #4f46e5; }
+button:disabled { opacity: .5; cursor: wait; }
+.row { display: flex; gap: 8px; }
+code { word-break: break-all; font-size: .85rem; }
+#status { min-height: 1.4em; color: #fbbf24; word-break: break-word; }
+
