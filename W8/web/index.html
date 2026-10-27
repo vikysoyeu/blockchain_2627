@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monkey NFT &amp; Marketplace - ERC-721 on Hardhat</title>
+  <style>
+    :root { --bg: #0f172a; --card: #1e293b; --accent: #14b8a6; --amber: #f59e0b; --text: #e2e8f0; --muted: #94a3b8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+    main { max-width: 980px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 4px; }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    .muted { color: var(--muted); font-size: 13px; word-break: break-all; }
+    section { background: var(--card); border-radius: 12px; padding: 16px; margin-top: 16px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    input { flex: 1; min-width: 140px; padding: 9px 10px; border-radius: 8px; border: 1px solid #334155; background: #0b1220; color: var(--text); }
+    button { padding: 9px 14px; border: 0; border-radius: 8px; background: var(--accent); color: #042f2e; font-weight: 600; cursor: pointer; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    button.warn { background: var(--amber); color: #1c1917; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin-top: 12px; }
+    .nft { background: #0b1220; border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .nft img { width: 100%; border-radius: 8px; aspect-ratio: 1; object-fit: cover; background: #111827; }
+    .nft h3 { margin: 4px 0 0; font-size: 16px; }
+    .traits { display: flex; flex-wrap: wrap; gap: 4px; }
+    .trait { font-size: 11px; background: #134e4a; padding: 2px 8px; border-radius: 999px; }
+    .price-tag { font-size: 15px; font-weight: 700; color: var(--amber); }
+    #log { font-family: ui-monospace, monospace; font-size: 13px; white-space: pre-wrap; max-height: 180px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Monkey NFT &amp; Marketplace</h1>
+    <div class="muted">ERC-721 · Hardhat Local (31337) · IPFS · Mua bán NFT bằng ETH</div>
+
+    <section>
+      <div class="row">
+        <button id="connect">Connect MetaMask</button>
+        <span id="account" class="muted">Chưa kết nối</span>
+        <span id="balance" class="price-tag"></span>
+      </div>
+      <div class="muted" id="contractInfo"></div>
+    </section>
+
+    <section>
+      <h2>Mint NFT (Owner: Ví 1)</h2>
+      <div class="row">
+        <input id="mintTo" placeholder="Địa chỉ nhận (trống = ví đang kết nối)" />
+        <button id="mint" disabled>Mint NFT</button>
+      </div>
+      <div class="muted" id="uriInfo"></div>
+    </section>
+
+    <section>
+      <div class="row" style="justify-content: space-between">
+        <h2 style="margin: 0">NFT của tôi</h2>
+        <button id="refresh" class="ghost" disabled>Tải lại</button>
+      </div>
+      <div id="gallery" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Chợ NFT (Marketplace - Mua bán bằng ETH)</h2>
+      <div id="marketGallery" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Chuyển trực tiếp NFT (Transfer)</h2>
+      <div class="row">
+        <input id="transferId" type="number" min="0" placeholder="Token ID" style="max-width: 130px" />
+        <input id="transferTo" placeholder="Địa chỉ nhận 0x..." />
+        <button id="transfer" disabled>Transfer</button>
+      </div>
+    </section>
+
+    <section><div id="log"></div></section>
+  </main>
+
+  <script src="/ethers.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

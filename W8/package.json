@@ -1,0 +1,30 @@
+{
+  "name": "w8-erc721-hardhat",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "node": "hardhat node",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "ipfs": "node scripts/ipfs-node.mjs",
+    "mint": "hardhat run scripts/mint.js --network localhost",
+    "transfer": "hardhat run scripts/transfer.js --network localhost",
+    "list": "hardhat run scripts/list.js --network localhost",
+    "buy": "hardhat run scripts/buy.js --network localhost",
+    "web": "node web/serve.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0"
+  },
+  "dependencies": {
+    "@helia/unixfs": "^8.0.9",
+    "@openzeppelin/contracts": "^5.0.0",
+    "blockstore-fs": "^4.0.1",
+    "datastore-fs": "^12.0.1",
+    "ethers": "^6.13.0",
+    "helia": "^7.1.16",
+    "multiformats": "^14.0.5"
+  }
+}
